@@ -28,7 +28,7 @@ public class AddDish extends AppCompatActivity {
         });
 
 
-         AppDataBase appDataBase ;
+        
         EditText  dishNameText = findViewById(R.id.dishNameInput);
         EditText  dishPriceText = findViewById(R.id.dishPriceInput);
         EditText dishIngredients = findViewById(R.id.dishIngredientsInput);
@@ -39,7 +39,7 @@ public class AddDish extends AppCompatActivity {
             public void onClick(View view) {
                 Dish dish =new Dish(dishNameText.getText().toString() , Integer.parseInt(dishPriceText.getText().toString()) , dishIngredients.getText().toString());
 
-                appDataBase =  Room.databaseBuilder(getApplicationContext(), AppDataBase.class, "dataBase_dish").allowMainThreadQueries().build();
+                AppDataBase appDataBase = Room.databaseBuilder(getApplicationContext(), AppDataBase.class, "dataBase_dish").allowMainThreadQueries().build();
                DishDao dishDao = appDataBase.dishDao();
 
                dishDao.insertAll(dish);
