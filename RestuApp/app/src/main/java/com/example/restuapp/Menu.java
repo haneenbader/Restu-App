@@ -21,14 +21,13 @@ public class Menu extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
 
        //get data from database and show it as list of dish using recycleView
-        appDataBase =  Room.databaseBuilder(getApplicationContext(), AppDataBase.class, "dataBase_dish").allowMainThreadQueries()
-                .build();
-
-        List<Dish> AllDish = appDataBase.dishDao().getAll();
+        appDataBase =  Room.databaseBuilder(getApplicationContext(), AppDataBase.class, "dish_db").allowMainThreadQueries().fallbackToDestructiveMigration().build();
+        DishDao dishDao = appDataBase.dishDao();
+        List<Dish> allDish = dishDao.getAll();
 
         RecyclerView allDishRecycleView = findViewById(R.id.dishRecycleView);
         allDishRecycleView.setLayoutManager(new LinearLayoutManager(this));
-        allDishRecycleView.setAdapter(new DishAdapter(AllDish));
+        allDishRecycleView.setAdapter(new DishAdapter(allDish));
 
 
 

@@ -6,30 +6,22 @@ import androidx.room.PrimaryKey;
 
 @Entity
 public class Dish {
-    @PrimaryKey
-   public int dishId;
+    @PrimaryKey(autoGenerate = true)
+    public int dishId;
     @ColumnInfo(name = "dish_name")
-   public  String name ;
-
-    public int getDishId() {
-        return dishId;
-    }
-
-    public void setDishId(int dishId) {
-        this.dishId = dishId;
-    }
-
+    public  String name ;
 
     @ColumnInfo(name = "dish_price")
      public  int price = 0  ;
     @ColumnInfo(name = "dish_ingredients")
      public  String ingredients ;
 
-
-    public Dish() {
-    }
+    public Dish(){}
 
     public  Dish( String name ,int price , String ingredients ) {
+    this.name = name ;
+    this.price =price ;
+    this.ingredients = ingredients ;
     }
 
     public String getName() {
@@ -55,4 +47,14 @@ public class Dish {
     public void setIngredients(String ingredients) {
         this.ingredients = ingredients;
     }
+
+    public int getDishId() {
+        return dishId;
+    }
+
+    public void setDishId(int dishId) {
+        this.dishId = dishId;
+    }
+
+
 }

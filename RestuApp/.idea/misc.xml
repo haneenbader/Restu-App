@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/java-401/Restu-App/RestuApp/app/src/main/res/layout/activity_add_dish.xml" value="0.1" />
+        <entry key="..\:/java-401/Restu-App/RestuApp/app/src/main/res/layout/activity_dish_details.xml" value="0.22" />
+        <entry key="..\:/java-401/Restu-App/RestuApp/app/src/main/res/layout/activity_menu.xml" value="0.1" />
+        <entry key="..\:/java-401/Restu-App/RestuApp/app/src/main/res/layout/fragment_dish_item.xml" value="0.15833333333333333" />
         <entry key="..\:/java-401/RestuApp/app/src/main/res/layout/activity_add_dish.xml" value="0.18" />
         <entry key="..\:/java-401/RestuApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/java-401/RestuApp/app/src/main/res/layout/activity_menu.xml" value="0.18" />

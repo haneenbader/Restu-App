@@ -39,10 +39,10 @@ public class AddDish extends AppCompatActivity {
             public void onClick(View view) {
                 Dish dish =new Dish(dishNameText.getText().toString() , Integer.parseInt(dishPriceText.getText().toString()) , dishIngredients.getText().toString());
 
-                AppDataBase appDataBase = Room.databaseBuilder(getApplicationContext(), AppDataBase.class, "dataBase_dish").allowMainThreadQueries().build();
-               DishDao dishDao = appDataBase.dishDao();
+                AppDataBase appDataBase = Room.databaseBuilder(getApplicationContext(), AppDataBase.class, "dish_db").allowMainThreadQueries().fallbackToDestructiveMigration().build();
+                DishDao dishDao = appDataBase.dishDao();
 
-               dishDao.insertAll(dish);
+                dishDao.insertAll(dish);
             }
         });
 

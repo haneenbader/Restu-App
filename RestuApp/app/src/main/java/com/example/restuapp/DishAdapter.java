@@ -1,6 +1,7 @@
 package com.example.restuapp;
 
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ public class DishAdapter extends  RecyclerView.Adapter<DishAdapter.DishViewHolde
 
     // 2- create the list the the adapter will use to bind data
     List<Dish> allDish = new ArrayList<>();
+
     // generate constructor
     public DishAdapter(List<Dish> allDish) {
         this.allDish = allDish;
@@ -36,6 +38,19 @@ public class DishAdapter extends  RecyclerView.Adapter<DishAdapter.DishViewHolde
         public DishViewHolder(@NonNull View itemView) {
             super(itemView);
             this.itemView = itemView;
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent goToDetails = new Intent(v.getContext(),DishDetails.class);
+                    goToDetails.putExtra("dish_name",dish.name );
+                    goToDetails.putExtra("dish_price",Integer.toString(dish.price));
+                    goToDetails.putExtra("dish_ingredients", dish.ingredients);
+                    v.getContext().startActivity(goToDetails);
+
+                }
+            });
+
         }
     }
 
@@ -59,7 +74,7 @@ public class DishAdapter extends  RecyclerView.Adapter<DishAdapter.DishViewHolde
 //
 
         name.setText(holder.dish.name);
-        price.setText(holder.dish.price);
+        price.setText(Integer.toString(holder.dish.price));
 //        ingredients.setText(holder.dish.ingredients);
 
 
