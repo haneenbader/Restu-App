@@ -24,7 +24,7 @@ public class Menu extends AppCompatActivity {
         appDataBase =  Room.databaseBuilder(getApplicationContext(), AppDataBase.class, "dish_db").allowMainThreadQueries().fallbackToDestructiveMigration().build();
         DishDao dishDao = appDataBase.dishDao();
         List<Dish> allDish = dishDao.getAll();
-
+          System.out.println(allDish + "kkkkkkkkkkk");
         RecyclerView allDishRecycleView = findViewById(R.id.dishRecycleView);
         allDishRecycleView.setLayoutManager(new LinearLayoutManager(this));
         allDishRecycleView.setAdapter(new DishAdapter(allDish));

@@ -16,7 +16,7 @@ public class Dish {
     @ColumnInfo(name = "dish_ingredients")
      public  String ingredients ;
 
-    public Dish(){}
+
 
     public  Dish( String name ,int price , String ingredients ) {
     this.name = name ;
